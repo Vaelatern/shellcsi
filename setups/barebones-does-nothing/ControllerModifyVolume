@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Expected JSON:
+# {
+# 	"volume_id": string, # Required
+# 	"secrets": map[string]string,
+# 	"mutable_parameters": map[string]string # Required
+# }
+
+input="$(cat)"
+
+arg() {
+	jq -r "$1" <<EOF
+$input
+EOF
+}
+
+jq -n '$ARGS.named'

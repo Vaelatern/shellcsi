@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Expected JSON:
+# {
+# }
+
+input="$(cat)"
+
+arg() {
+	jq -r "$1" <<EOF
+$input
+EOF
+}
+
+jq -n '$ARGS.named'
